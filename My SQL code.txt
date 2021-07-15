@@ -1,0 +1,22 @@
+create database AdvancedATM;
+use AdvancedATM
+create table accounts(
+   account_number CHAR(8) NOT NULL,
+   full_name VARCHAR(30) NOT NULL,
+   email VARCHAR(30) NOT NULL,
+   phone_number VARCHAR(15) NOT NULL,
+   password VARCHAR(20) NOT NULL,
+   gender VARCHAR(6),
+   balance DOUBLE,
+   PRIMARY KEY (account_number)
+);
+
+
+create table transaction(
+
+	acccount_holder CHAR(8) NOT NULL,
+	type VARCHAR(15),
+	account CHAR(8),
+	amount DOUBLE,
+	FOREIGN KEY (acccount_holder) REFERENCES accounts(account_number)
+);
